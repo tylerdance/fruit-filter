@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import List from './List'
 import Input from './Input'
 
@@ -18,15 +18,15 @@ class FruitContainer extends Component {
         let filterValue = e.target.value;
         // remove fruits that dont contain the filter value
         const filterFruitList = this.props.fruits.filter(fruit => {
-            // return fruit.toLowerCase().includes(filterValue.toLowerCase())
+            return fruit.toLowerCase().includes(filterValue.toLowerCase())
 
-            if (fruit.toLowerCase() === filterValue.toLowerCase()) {
-                return true;
-            }
+            // if (fruit.toLowerCase() === filterValue.toLowerCase()) {
+            //     return true;
+            // }
         })
 
         this.setState({ 
-            fruitsToDisplay: filteredFruitList,
+            fruitsToDisplay: filterFruitList,
             filterValue,
         })
     }
